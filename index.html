@@ -2,6 +2,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1">
+
     <title>Nova＜ノヴァ＞</title>
     <link rel="stylesheet" href="./css/main.css" />
     <meta name="description" content="Nova｜Python｜多分モダンなWebアプリケーションフレームワーク">
@@ -39,7 +41,7 @@
         <div class="uk-navbar-left">
             <a uk-scroll style="text-decoration: none;">
                 <img class="nav_logo" src="./img/logo.png">
-                <span id="logo_text" class="or" style="font-size: 21px;display: none;">Nova v/1.0</span>
+                <span id="logo_text" class="or" style="font-size: 21px;display: none;">Nova /1.0</span>
             </a>
         </div>
 
@@ -53,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./doc_main.html">
                         <span class="uk-icon uk-margin-small-right" uk-icon="info"></span>
                         Documentation
                     </a>
@@ -72,14 +74,14 @@
 
 
     <div>
-        <img src="./img/wallpaper.png" width="100%" style="border-bottom: dashed 10px white;">
+        <img src="./img/wallpaper.png" width="100%" style="border-bottom: dashed 17px white;">
 
-        <div class="bt" style="border-bottom: dashed 10px white;">
+        <div class="bt" style="border-bottom: dashed 17px white;">
             <div class="uk-section uk-section-small uk-container uk-container-large">
                 <h1 class="cw b">Nova｜Python3.9｜多分モダンなWebアプリケーションフレームワーク</h1>
                 <div>
                     <p class="cw b">
-                        Novaは、よくある普通のWebアプリケーションのためのPython3.9で書かれた普通のフレームワークです。これといって秀でた機能はありません！
+                        Novaは、よくある普通のWebアプリケーションのためのPython3.9で書かれた普通のフレームワークです。
                         <br>
                         今ではすっかりスタンダードとなった非同期処理(Async)を基本とし、Html, CSS, 画像などの静的コンテンツをオンメモリ化。　
                         <br>
@@ -91,6 +93,10 @@
 
                 <div class="uk-section uk-section-small uk-container uk-container-small">
                     <h2 class="cw b tac">インストール！</h2>
+                    <p class="cw b">
+                        <span uk-icon="warning"></span> Pythonのバージョンは3.7以上である必要があります。<br>
+                        環境によってはpipがPython2系で動作する可能性があります。その場合はpip3を利用しましょう。
+                    </p>
                     <pre><code id="code-000">pip install Nova-EveFamilia</code></pre>
                     <div style="text-align: right;">
                         <button class="uk-button uk-button-default clip" data-clipboard-target="#code-000"
@@ -125,7 +131,7 @@ async def GetTest(self, connection, Request, ReplyHeader):
 
 
 # IP:127.0.0.1 PORT:7777
-# /var/www/html 以下のファイルからMIMEに一致するものだけ自動的にメモリに格納します
+# /var/www/html 以下のファイルからMIMEタイプに一致するものだけ自動的にメモリに格納します
 nova = Nova.Service(
     host="127.0.0.1",
     port=7777,
@@ -223,18 +229,21 @@ nova.Start()</code></pre>
                 </div>
                 <div class="uk-section uk-section-large uk-container uk-container-large">
                     <h2 class="uk-heading-line"><span>設計思想</span></h2>
+                    <img class="tac" src="./img/logo.png" width="400px">
+
                     <h3 class="tac"><q>データを追い、コードの先を歩く</q></h3>
+                    <p class="tac uk-article-meta">大切なのはコードの先にあるデータであり、それが最も重要な本質だと考えます。</p>
 
                     <div class="start uk-width-1-2@m uk-align-center uk-margin-xlarge-top">
-                        <div class="uk-card uk-card-body">
-                            <h3 class="uk-card-title cw b">そんなことはいいからとにかくはじめる</h3>
-                        </div>
+                        <a href="./doc_main.html" style="text-decoration: none;">
+                            <div class="uk-card uk-card-body">
+                                <h3 class="uk-card-title cw b" style="user-select:none">>>> そんなことはいいからとにかくはじめる</h3>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
-
-
-                <div class="uk-margin-large-top">
+                <div class="uk-margin-large-top tac">
                     <a href="https://www.eve.familia.inc" target="blank">
                         <img src="./img/EveFamilia.svg" style="height:80px">
                         <p class="uk-margin-remove or">Eve.Familia, Inc.</p>

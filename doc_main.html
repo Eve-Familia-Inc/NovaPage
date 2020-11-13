@@ -1,0 +1,303 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+    <title>Nova＜ノヴァ＞｜Documentation</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <meta name="description" content="Nova｜Python｜多分モダンなWebアプリケーションフレームワーク">
+    <meta name="keywords" content="Nova,Python,Web,フレームワーク,EveFamilia">
+    <!-- for sns -->
+    <meta property="og:url" content="https://nova.eve.ninja" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nova＜ノヴァ＞" />
+    <meta property="og:description" content="Nova｜Python｜多分モダンなWebアプリケーションフレームワーク" />
+    <meta property="og:site_name" content="Nova＜ノヴァ＞" />
+    <meta property="og:image" content="https://nova.eve.ninja/img/wallpaper.png" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+
+    <!-- ClipBoard.js -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+    <!-- Syntax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+</head>
+
+<body>
+    <nav class="nav uk-navbar-container uk-navbar-transparent uk-background-default uk-box-shadow-small"
+        style="z-index: 980;height: auto;" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <a uk-scroll style="text-decoration: none;">
+                <img class="nav_logo" src="./img/logo.png">
+                <span id="logo_text" class="or" style="font-size: 21px;display: none;">Nova /1.0</span>
+            </a>
+        </div>
+
+        <div class="uk-navbar-right">
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="./index.html">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="home"></span>
+                        TOP
+                    </a>
+                </li>
+                <li>
+                    <a href="./doc_main.html">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="info"></span>
+                        Documentation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Eve-Familia-Inc/Nova" target="blank">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="github"></span>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="background"></div>
+
+
+
+    <div>
+        <a href="#offcanvas-usage" uk-toggle
+            class="uk-margin-large-right uk-margin-large-bottom uk-padding-small openmenu" uk-tooltip="Open index">
+            <span uk-icon="icon: menu; ratio: 2"></span>
+        </a>
+
+        <div id="offcanvas-usage" uk-offcanvas>
+            <div class="uk-offcanvas-bar" style="background-color: #f0865d;">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <ul class="uk-nav uk-nav-default b">
+
+                    <li class="uk-nav-header" style="font-size: 1.3em;">いんとろだくしょん</li>
+                    <li class="uk-active uk-margin-left"><a href="#">
+                            はじめに
+                        </a></li>
+                    <li class="uk-active"><a href="#"><span class="uk-margin-small-right"
+                                uk-icon="icon: thumbnails"></span>準備中…</a>
+                    </li>
+                    <li class="uk-nav-divider">準備中…</li>
+
+                    <li class="uk-nav-header" style="font-size: 1.3em;">準備中…</li>
+                    <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span>
+                            準備中…
+                        </a></li>
+                    <li class="uk-active"><a href="#"><span class="uk-margin-small-right"
+                                uk-icon="icon: thumbnails"></span>
+                            準備中…
+                        </a>
+                    <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span>
+                            準備中…
+                        </a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="bt" style="border-bottom: dashed 17px white;">
+            <div class="uk-section uk-section-small uk-container uk-container-large">
+                <h1 class="cw b">はじめに</h1>
+                <div>
+                    <p class="cw b">
+                        基本的なセットアップ方法と、Novaパッケージの概要を知りましょう
+                    </p>
+                </div>
+
+                <div class="uk-section uk-section-small uk-container uk-container-small">
+                    <h2 class="cw b tac">とりあえずインストール！</h2>
+                    <p class="cw b">
+                        <span uk-icon="warning"></span> Pythonのバージョンは3.7以上である必要があります。<br>
+                        環境によってはpipがPython2系で動作する可能性があります。その場合はpip3を利用しましょう。
+                    </p>
+                    <pre><code id="code-000">pip install Nova-EveFamilia</code></pre>
+                    <div style="text-align: right;">
+                        <button class="uk-button uk-button-default clip" data-clipboard-target="#code-000"
+                            uk-tooltip="クリップボードにコピー"><span uk-icon="copy"></span> Copy</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bw">
+            <div class="uk-section uk-section-small uk-container uk-container-small">
+                <h2 class="uk-heading-line tac"><span>構成</span></h2>
+                <pre><code>Nova/
+    __init__.py
+    Core/
+        __init__.py
+        ServerBase.py
+        Stream.py
+    Server/
+        __init__.py
+        Http.py
+        Defines.py</code></pre>
+
+                <div class="uk-overflow-auto">
+                    <table class="uk-table uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">ファイル</font>
+                                    </font>
+                                </th>
+                                <th align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">説明</font>
+                                    </font>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="left"><code>Nova/__init__.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <code>import Nova</code>で読み込まれるソースです
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Core/__init__.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            パッケージ構築用の空のファイル
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Core/ServerBase.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            サーバーを起動しクライアントの接続を受け付け、ハンドラに引き継ぐクラスが含まれています
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Core/Stream.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <code>asyncio.start_server()</code>をラップするAsyncStream()クラスが含まれています
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Server/__init__.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            パッケージ構築用の空のファイル
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Server/Http.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            Httpソケット通信に対する具体的な処理を行うクラスが含まれています
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><code>Nova/Server/Defines.py</code></td>
+                                <td align="left">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            レスポンスコード、MIMEタイプの定数が含まれています
+                                        </font>
+                                    </font>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="uk-section uk-section-large uk-container uk-container-large">
+                    <h2 class="uk-heading-line tac"><span>設計思想</span></h2>
+                    <h3 class="tac"><q>データを追い、コードの先を歩く</q></h3>
+                </div>
+
+
+                <div class="uk-margin-large-top tac">
+                    <a href="https://www.eve.familia.inc" target="blank">
+                        <img src="./img/EveFamilia.svg" style="height:80px">
+                        <p class="uk-margin-remove or">Eve.Familia, Inc.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    function resize_event() {
+        if (window.innerWidth < window.innerHeight) {
+            document.getElementById("logo_text").style.display = "none";
+        }
+        else {
+            document.getElementById("logo_text").style.display = "inline";
+        }
+    }
+    window.onresize = resize_event;
+    window.onload = resize_event;
+
+
+
+    var clipboard = new ClipboardJS('.clip');
+
+    //成功した時のイベント
+    clipboard.on('success', function (e) {
+        UIkit.notification({ message: "<span uk-icon=\'icon: check\'></span>　コピーしました！", status: "warning" });
+        e.clearSelection();
+    });
+    hljs.initHighlightingOnLoad();
+</script>

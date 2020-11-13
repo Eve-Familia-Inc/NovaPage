@@ -110,35 +110,35 @@
                     <pre><code class="python" id="code-001">import Nova
 
 
-# エコーサンプル POSTパラメーター用
+# にゃにゃにゃPOSTにゃにゃにゃにゃにゃにゃにゃ
 async def PostTest(self, connection, Request, ReplyHeader):
-    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    # にゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃ
     ReplyHeader["ReplyContent"] = b"POST:" + Request["content"]
     ReplyHeader["Content-Type"] = b"text/html"
     ReplyHeader["Status"] = 200
-    # レスポンスを返します
+    # にゃにゃ
     await self.Reply(connection, ReplyHeader)
 
 
-# エコーサンプル GETパラメーター用
+# にゃにゃにゃGETにゃにゃにゃにゃにゃにゃにゃ
 async def GetTest(self, connection, Request, ReplyHeader):
-    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    # にゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃ
     ReplyHeader["ReplyContent"] = b"GET:" + Request["content"]
     ReplyHeader["Content-Type"] = b"text/html"
     ReplyHeader["Status"] = 200
-    # レスポンスを返します
+    # にゃにゃ
     await self.Reply(connection, ReplyHeader)
 
 
-# IP:127.0.0.1 PORT:7777
-# /var/www/html 以下のファイルからMIMEタイプに一致するものだけ自動的にメモリに格納します
+# にゃ:127.0.0.1 にゃにゃ:7777
+# /var/www/html にゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃ
 nova = Nova.Service(
     host="127.0.0.1",
     port=7777,
     root_path="/var/www/html"
 )
 
-# パスにメソッドをマッピング
+# にゃにゃにゃにゃにゃ
 nova.PostFunctions = {
     "/PostTest.post": PostTest
 }
@@ -146,13 +146,13 @@ nova.GetFunctions = {
     "/GetTest.get": GetTest
 }
 
-# SSLを有効化
+# SSLにゃ
 nova.EnableSSL(
     domain_cert="domain.cert.pem",
     private_key="private.key.pem"
 )
 
-# あとはスタートするだけ！
+# にゃ！
 nova.Start()</code></pre>
 
                     <div style="text-align: right;">

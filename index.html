@@ -112,7 +112,7 @@
 
 # エコーサンプル POSTパラメーター用
 async def PostTest(self, connection, Request, ReplyHeader):
-    # レスポンスヘッダを作っていきましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
     ReplyHeader["ReplyContent"] = b"POST:" + Request["content"]
     ReplyHeader["Content-Type"] = b"text/html"
     ReplyHeader["Status"] = 200
@@ -122,7 +122,7 @@ async def PostTest(self, connection, Request, ReplyHeader):
 
 # エコーサンプル GETパラメーター用
 async def GetTest(self, connection, Request, ReplyHeader):
-    # レスポンスヘッダを作っていきましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
     ReplyHeader["ReplyContent"] = b"GET:" + Request["content"]
     ReplyHeader["Content-Type"] = b"text/html"
     ReplyHeader["Status"] = 200

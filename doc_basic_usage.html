@@ -130,22 +130,20 @@
     <div>
         <div class="bt" style="border-bottom: dashed 17px white;">
             <div class="uk-section uk-section-small uk-container uk-container-large">
-                <h1 class="cw b">はじめる</h1>
+                <h1 class="cw b">基本的な使い方</h1>
                 <div>
                     <p class="cw b">
-                        基本的なセットアップ方法と、Novaパッケージの概要を知りましょう
+                        Pythonスクリプト内でNovaを利用する方法を学びます
                     </p>
                 </div>
 
                 <div class="uk-section uk-section-small uk-container uk-container-small">
-                    <h2 class="cw b tac">とりあえずインストール！</h2>
+                    <h2 class="cw b tac">まずはインポートしましょう</h2>
                     <p class="cw b">
-                        <span uk-icon="warning"></span> Pythonのバージョンは3.7以上である必要があります。<br>
-                        環境によってはpipがPython2系で動作する可能性があります。その場合はpip3を利用しましょう。<br>
-                        Novaが他のパッケージと競合している場合は
+                        <span uk-icon="warning"></span> Novaが他のパッケージと競合している場合は
                         <a href="#" class="cw"><u>こちらをお読みください</u></a>
                     </p>
-                    <pre><code id="code-000">pip install Nova-EveFamilia</code></pre>
+                    <pre><code id="code-000">import Nova</code></pre>
                     <div style="text-align: right;">
                         <button class="uk-button uk-button-default clip" data-clipboard-target="#code-000"
                             uk-tooltip="クリップボードにコピー"><span uk-icon="copy"></span> Copy</button>
@@ -156,127 +154,68 @@
         </div>
 
         <div class="bw">
+
             <div class="uk-section uk-section-small uk-container uk-container-small">
-                <h2 class="uk-heading-line tac"><span>ソースの構成</span></h2>
-                <pre><code>Nova/
-    __init__.py
-    Core/
-        __init__.py
-        ServerBase.py
-        Stream.py
-    Server/
-        __init__.py
-        Http.py
-        Defines.py</code></pre>
+                <h2 class="uk-heading-line tac"><span>とりあえず動かす</span></h2>
 
-                <div class="uk-overflow-auto">
-                    <table class="uk-table uk-table-divider">
-                        <thead>
-                            <tr>
-                                <th align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">ファイル</font>
-                                    </font>
-                                </th>
-                                <th align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">説明</font>
-                                    </font>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="left"><code>Nova/__init__.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            <code>import Nova</code>で読み込まれるソースです
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Core/__init__.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            パッケージ構築用の空のファイル
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Core/ServerBase.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            サーバーを起動しクライアントの接続を受け付け、ハンドラに引き継ぐクラスが含まれています
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Core/Stream.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            <code>asyncio.start_server()</code>をラップするAsyncStream()クラスが含まれています
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Server/__init__.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            パッケージ構築用の空のファイル
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Server/Http.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Httpソケット通信に対する具体的な処理を行うクラスが含まれています
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left"><code>Nova/Server/Defines.py</code></td>
-                                <td align="left">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            レスポンスコード、MIMEタイプの定数が含まれています
-                                        </font>
-                                    </font>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <pre><code class="python" id="code-001">import Nova
+
+
+# エコーサンプル POSTパラメーター用
+async def PostTest(self, connection, Request, ReplyHeader):
+    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    ReplyHeader["ReplyContent"] = b"POST:" + Request["content"]
+    ReplyHeader["Content-Type"] = b"text/html"
+    ReplyHeader["Status"] = 200
+    # レスポンスを返します
+    await self.Reply(connection, ReplyHeader)
+
+
+# エコーサンプル GETパラメーター用
+async def GetTest(self, connection, Request, ReplyHeader):
+    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
+    ReplyHeader["ReplyContent"] = b"GET:" + Request["content"]
+    ReplyHeader["Content-Type"] = b"text/html"
+    ReplyHeader["Status"] = 200
+    # レスポンスを返します
+    await self.Reply(connection, ReplyHeader)
+
+
+# IP:127.0.0.1 PORT:7777
+# /var/www/html 以下のファイルからMIMEタイプに一致するものだけ自動的にメモリに格納します
+nova = Nova.Service(
+    host="127.0.0.1",
+    port=7777,
+    root_path="/var/www/html"
+)
+
+# パスにメソッドをマッピング
+nova.PostFunctions = {
+    "/PostTest.post": PostTest
+}
+nova.GetFunctions = {
+    "/GetTest.get": GetTest
+}
+
+# SSLを有効化
+nova.EnableSSL(
+    domain_cert="domain.cert.pem",
+    private_key="private.key.pem"
+)
+
+# あとはスタートするだけ！
+nova.Start()</code></pre>
+
+                <div style="text-align: right;">
+                    <button class="uk-button uk-button-default clip" data-clipboard-target="#code-001"
+                        uk-tooltip="クリップボードにコピー"><span uk-icon="copy"></span> Copy</button>
                 </div>
-
-                <div class="uk-section uk-section-large uk-container uk-container-large">
-                    <h2 class="uk-heading-line tac"><span>Githubからダウンロードしてポータブルに使う</span></h2>
-                    <pre><code class="sh" id="code-002">git clone https://github.com/Eve-Familia-Inc/Nova.git
-cd Nova
-# ディレクトリ内でNovaが利用できるようになります。</code></pre>
-                    <div style="text-align: right;">
-                        <button class="uk-button uk-button-default clip" data-clipboard-target="#code-002"
-                            uk-tooltip="クリップボードにコピー"><span uk-icon="copy"></span> Copy</button>
-                    </div>
-                </div>
-
                 <ul class="uk-pagination">
-                    <!-- <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> _</a></li> -->
-                    <li class="uk-margin-auto-left"><a href="./doc_basic_usage.html">基本的な使い方 <span
-                                class="uk-margin-small-left" uk-pagination-next></span></a></li>
+                    <li><a href="./doc_main.html"><span class="uk-margin-small-right" uk-pagination-previous></span>
+                            はじめる</a></li>
+                    <!-- <li class="uk-margin-auto-left"><a href="#">_ <span class="uk-margin-small-left"
+                                uk-pagination-next></span></a></li> -->
                 </ul>
-
                 <div class="uk-margin-large-top tac">
                     <a href="https://www.eve.familia.inc" target="blank">
                         <img src="./img/EveFamilia.svg" style="height:80px">
@@ -284,7 +223,9 @@ cd Nova
                     </a>
                 </div>
             </div>
+
         </div>
+
 
 
         <ul class="circles">

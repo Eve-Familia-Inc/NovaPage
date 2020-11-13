@@ -1,3 +1,7 @@
+.x15{
+    font-size: 1.5em;
+}
+
 .nav_logo {
     margin: 6 0 6 0;
     height: 60px;
@@ -6,7 +10,6 @@
 
 .or {
     font-family: 'Orbitron', sans-serif;
-    color: #f0865d;
 }
 
 .tac{
@@ -15,6 +18,9 @@
 
 .cw{
     color: white;
+}
+.co{
+    color: #f0865d; 
 }
 .bw{
     background-color: white;

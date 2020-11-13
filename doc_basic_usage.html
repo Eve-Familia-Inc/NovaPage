@@ -38,10 +38,10 @@
 <body>
     <nav class="nav uk-navbar-container uk-navbar-transparent uk-background-default uk-box-shadow-small"
         style="z-index: 980;height: auto;" uk-navbar uk-sticky>
-        <div class="uk-navbar-left">
+        <div class="uk-navbar-left" id="logo" style="display: none;">
             <a uk-scroll style="text-decoration: none;">
                 <img class="nav_logo" src="./img/logo.png">
-                <span id="logo_text" class="or co" style="font-size: 21px;display: none;">Nova /1.0</span>
+                <span class="or co" style="font-size: 21px;">Nova /1.0</span>
             </a>
         </div>
 
@@ -249,10 +249,10 @@ nova.Start()</code></pre>
 <script>
     function resize_event() {
         if (window.innerWidth < window.innerHeight) {
-            document.getElementById("logo_text").style.display = "none";
+            document.getElementById("logo").style.display = "none";
         }
         else {
-            document.getElementById("logo_text").style.display = "inline";
+            document.getElementById("logo").style.display = "inline";
         }
     }
     window.onresize = resize_event;

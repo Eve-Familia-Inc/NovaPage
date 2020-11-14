@@ -156,60 +156,25 @@
         <div class="bw">
 
             <div class="uk-section uk-section-small uk-container uk-container-small">
-                <h2 class="uk-heading-line tac"><span>とりあえず動かす</span></h2>
-
+                <h2 class="uk-heading-line tac"><span>とりあえずHTTPサーバーを動かす</span></h2>
+                <p>IPアドレス：127.0.0.1 ポート：7777<br>
+                    <code>root_path</code>引数に指定した<code>/var/www/html</code>以下のファイルからMIMEタイプに一致するものだけ自動的にメモリに格納。<br>
+                    <code>Nova.Service.Start()</code>でサーバーが起動し、<code>[CTR] + C</code>でサーバーを終了することができます。</p>
                 <pre><code class="python" id="code-001">import Nova
 
-
-# エコーサンプル POSTパラメーター用
-async def PostTest(self, connection, Request, ReplyHeader):
-    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
-    ReplyHeader["ReplyContent"] = b"POST:" + Request["content"]
-    ReplyHeader["Content-Type"] = b"text/html"
-    ReplyHeader["Status"] = 200
-    # レスポンスを返します
-    await self.Reply(connection, ReplyHeader)
-
-
-# エコーサンプル GETパラメーター用
-async def GetTest(self, connection, Request, ReplyHeader):
-    # レスポンス用の構造体を編集しましょう。正しいレスポンスを返すために、これら3つの設定は必須です。
-    ReplyHeader["ReplyContent"] = b"GET:" + Request["content"]
-    ReplyHeader["Content-Type"] = b"text/html"
-    ReplyHeader["Status"] = 200
-    # レスポンスを返します
-    await self.Reply(connection, ReplyHeader)
-
-
-# IP:127.0.0.1 PORT:7777
-# /var/www/html 以下のファイルからMIMEタイプに一致するものだけ自動的にメモリに格納します
-nova = Nova.Service(
+Nova.Service(
     host="127.0.0.1",
     port=7777,
     root_path="/var/www/html"
-)
-
-# パスにメソッドをマッピング
-nova.PostFunctions = {
-    "/PostTest.post": PostTest
-}
-nova.GetFunctions = {
-    "/GetTest.get": GetTest
-}
-
-# SSLを有効化
-nova.EnableSSL(
-    domain_cert="domain.cert.pem",
-    private_key="private.key.pem"
-)
-
-# あとはスタートするだけ！
-nova.Start()</code></pre>
-
+).Start()</code></pre>
                 <div style="text-align: right;">
                     <button class="uk-button uk-button-default clip" data-clipboard-target="#code-001"
                         uk-tooltip="クリップボードにコピー"><span uk-icon="copy"></span> Copy</button>
                 </div>
+
+                <p>任意のブラウザで<code>http://127.0.0.1:7777</code>にアクセスすると、<code>404 Not Found</code>もしくは<code>/var/www/html/index.html</code>の内容が表示されます。
+                </p>
+
                 <ul class="uk-pagination">
                     <li><a href="./doc_main.html"><span class="uk-margin-small-right" uk-pagination-previous></span>
                             はじめる</a></li>

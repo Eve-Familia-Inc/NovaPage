@@ -120,14 +120,14 @@ async def PostTest(self, connection, Request, ReplyHeader):
     await self.Reply(connection, ReplyHeader)
 
 
-# にゃにゃにゃGETにゃにゃにゃにゃにゃにゃにゃ
+# にゃにゃにゃGETにゃにゃにゃBrotliにゃにゃにゃにゃ
 async def GetTest(self, connection, Request, ReplyHeader):
     # にゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃにゃ
     ReplyHeader["ReplyContent"] = b"GET:" + Request["content"]
     ReplyHeader["Content-Type"] = b"text/html"
     ReplyHeader["Status"] = 200
     # にゃにゃ
-    await self.Reply(connection, ReplyHeader)
+    await self.ReplyCompressBrotli(connection, ReplyHeader)
 
 
 # にゃ:127.0.0.1 にゃにゃ:7777
@@ -202,7 +202,7 @@ nova.Start()</code></pre>
                             <span uk-icon="icon: settings; ratio: 3"></span>
                             <h3 class="uk-card-title">高い自由度</h3>
                             <p>
-                                Novaは一般的なオブジェクト思考プログラムと違い、高度な抽象化を提供しません。だからこそコンテンツや機能を動的に追加したい、そんな痒いところに手がなかなか届きそうに無い時でも、もうわざわざ検索する必要はありません。
+                                Novaは一般的なオブジェクト思考プログラムと違い、高度な抽象化を提供しません。だからこそコンテンツや機能を動的に追加したいだとか、そんな痒いところに手がなかなか届きそうに無い時でも、もうわざわざ検索する必要はありません。
                                 VirtualHostだって思いのままに実現できます。
                             </p>
                         </div>
